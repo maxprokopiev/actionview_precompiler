@@ -74,7 +74,8 @@ module ActionviewPrecompiler
       end
 
       def symbol?
-        type == :LIT && Symbol === children[0]
+        type == :SYM ||
+        (type == :LIT && Symbol === children[0])
       end
 
       def to_hash
